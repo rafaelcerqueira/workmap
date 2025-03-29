@@ -1,7 +1,7 @@
 import React from "react";
-import "./Sidebar.css";
+import "./SideNav.css";
 
-const Sidebar = ({ user }) => {
+const SideNav = ({ user }) => {
     return (
         <div className="sidebar">
             <div className="profile">
@@ -28,4 +28,4 @@ const Sidebar = ({ user }) => {
     );
 };
 
-export default Sidebar;
+export default SideNav;

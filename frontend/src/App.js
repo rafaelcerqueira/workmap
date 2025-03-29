@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import MainContent from './components/mainComponent/MainContent';
-import Sidebar from './components/sidebarComponent/Sidebar';
+import SideNav from './components/sideNavComponent/SideNav';
 import './App.css';
 
 const App = () => {
@@ -18,7 +18,7 @@ const App = () => {
 
   return (
     <div className='App'>
-      <Sidebar user={user} addTask={addTask} />
+      <SideNav user={user} addTask={addTask} />
       <MainContent>
         <h1>Tasks</h1>
         

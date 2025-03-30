@@ -1,30 +1,49 @@
-import React, { useState } from 'react';
-import MainContent from './components/mainComponent/MainContent';
-import SideNav from './components/sideNavComponent/SideNav';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import SideNav from './components/SideNav/SideNav';
+import Header from './components/Header/Header';
+import MainContent from './components/MainContent/MainContent';
+import GlobalStyles from './styles/GlobalStyles';
 
 const App = () => {
-  const [tasks, setTasks] = useState([]);
 
-  const addTask = (task) => {
-    setTasks([...tasks, { ...task, id: tasks.length + 1 }]);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if(window.innerWidth >= 768) {
+        setIsMenuOpen(true);
+      } else {
+        setIsMenuOpen(false);
+      }
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
-
+  
   const user = {
     name: 'Gir',
-    profilePic: 'https://i.ytimg.com/vi/SCh0BXdVtmE/hqdefault.jpg"'
+    profilePic: 'https://i.ytimg.com/vi/SCh0BXdVtmE/hqdefault.jpg'
     
   };
 
   return (
-    <div className='App'>
-      <SideNav user={user} addTask={addTask} />
+    <>
+      <GlobalStyles />
+      <Header toggleMenu={toggleMenu}></Header>
+      <SideNav isOpen={isMenuOpen} toggleMenu={toggleMenu} user={user} />
       <MainContent>
-        <h1>Tasks</h1>
-        
-
+        <h1>Bem-vindo ao Workmap!</h1>
       </MainContent>
-    </div>
+    </>
   );
 };
 

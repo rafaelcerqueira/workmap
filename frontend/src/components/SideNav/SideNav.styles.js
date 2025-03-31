@@ -14,8 +14,8 @@ export const SideNavWrapper = styled.div`
 
     @media (min-width: 768px) {
         top: 0;
-        width: 300px;
         height: 100%;
+        width: 300px;
         left: 0;
         position: relative;
         transition: none;

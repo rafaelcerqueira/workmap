@@ -1,30 +1,17 @@
 import React from "react";
+import { MainContentWrapper, TaskListWrapper, TaskItem } from './MainContent.styles';
+import TaskList from "../TaskList/TaskList";
 
-const MainContent = () => {
+const MainContent = ({ tasks }) => {
     return (
-        <div className="main-content">
-            <div className="main-content-header">
-
-                <h1>Tasks</h1>
-
-            </div>
-            <div className="main-content-body"></div>
-                <div className="task">
-                    <h2>Task 1</h2>
-                    <p>Task Description</p>
-                </div>
-                <div className="task">
-                    <h2>Task 2</h2>
-                    <p>Task Description</p>
-                </div>
-                <div className="task">
-                    <h2>Task 3</h2>
-                    <p>Task Description</p>
-                </div>
-            
-        </div>
-        
-        
+        <MainContentWrapper>
+            <h1>Tarefas</h1>
+            <TaskListWrapper>
+                {tasks.map((task, index) => (
+                    <TaskItem key={index}>{task}</TaskItem>
+                ))}
+            </TaskListWrapper>
+        </MainContentWrapper>
     );
 };
 

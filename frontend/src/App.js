@@ -15,8 +15,8 @@ const App = () => {
       setIsMenuOpen(window.innerWidth >= 768);
     };
 
-    handleResize();
     window.addEventListener('resize', handleResize);
+    handleResize();
 
     return () => {
       window.removeEventListener('resize', handleResize);
@@ -36,11 +36,13 @@ const App = () => {
   return (
     <>
       <GlobalStyles />
-      <Header toggleMenu={toggleMenu} user={user} isMobile={isMobile} />
-      <SideNav isOpen={isMenuOpen} isMobile={isMobile} user={user} />
-      <MainContent>
-        <h1>Bem-vindo ao Workmap!</h1>
-      </MainContent>
+      {isMobile && <Header toggleMenu={toggleMenu} user={user} isMobile={isMobile} />}
+      <div style={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', height: '100vh' }}>
+        {!isMobile && <SideNav isOpen={isMenuOpen} isMobile={isMobile} user={user} />}
+        {isMobile && <SideNav isOpen={isMenuOpen} isMobile={isMobile} />}
+        <MainContent tasks={['Comprar leite', 'Enviar e-mail', 'Finalizar relatório']} />
+      </div>
+
     </>
   );
 };

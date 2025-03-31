@@ -2,22 +2,25 @@ import styled from 'styled-components';
 
 export const SideNavWrapper = styled.div`
     position: fixed;
-    top: 50px;
+    top: ${({ isMobile }) => (isMobile ? '50px' : '0')};
     left: ${({ isOpen }) => (isOpen ? '0' : '-100%')};
-    width: 250px;
-    height: calc(100% - 50px);
+    width: ${({ isMobile }) => (isMobile ? '250px' : '300px')};
+    height: ${({ isMobile }) => (isMobile ? 'calc(100% - 50px)' : '100%')};
     background-color:rgb(217, 252, 90);
     transition: left 0.3s ease-in-out;
-    padding: 20px;
+    padding: ${({ isMobile }) => (isMobile ? '20px 20px 20px 20px' : '80px 20px 20px 20px')};
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     z-index: 1000;
 
     @media (min-width: 768px) {
+        top: 0;
+        width: 300px;
+        height: 100%;
         left: 0;
         position: relative;
-        width: auto;
         transition: none;
-        box-shadow: none;
+        z-index: 999;
+        
     }
 `;
 
@@ -30,6 +33,7 @@ export const Profile = styled.div`
         height: 80px;
         border-radius: 50%;
         margin: 0 auto;
+        display: block;
     }
     
     h2 {
@@ -37,6 +41,14 @@ export const Profile = styled.div`
         margin: 10px 0 0;
         color: #333;
     }
+`;
+
+export const AppName = styled.div`
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
 `;
 
 export const MenuItem = styled.a`
@@ -50,18 +62,3 @@ export const MenuItem = styled.a`
     }
 `;
 
-
-export const MenuButton = styled.button`
-    font-size: 1.5rem;
-    background: none;
-    border: none;
-    color: #007bff;
-    cursor: pointer;
-    position: absolute;
-    top: 10px;
-    left: 10px;
-
-    @media (min-width: 768px) {
-        display: none;
-    }
-`;

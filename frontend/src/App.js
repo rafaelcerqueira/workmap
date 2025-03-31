@@ -7,14 +7,12 @@ import GlobalStyles from './styles/GlobalStyles';
 const App = () => {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   useEffect(() => {
     const handleResize = () => {
-      if(window.innerWidth >= 768) {
-        setIsMenuOpen(true);
-      } else {
-        setIsMenuOpen(false);
-      }
+      setIsMobile(window.innerWidth < 768);
+      setIsMenuOpen(window.innerWidth >= 768);
     };
 
     handleResize();
@@ -38,8 +36,8 @@ const App = () => {
   return (
     <>
       <GlobalStyles />
-      <Header toggleMenu={toggleMenu}></Header>
-      <SideNav isOpen={isMenuOpen} toggleMenu={toggleMenu} user={user} />
+      <Header toggleMenu={toggleMenu} user={user} isMobile={isMobile} />
+      <SideNav isOpen={isMenuOpen} isMobile={isMobile} user={user} />
       <MainContent>
         <h1>Bem-vindo ao Workmap!</h1>
       </MainContent>

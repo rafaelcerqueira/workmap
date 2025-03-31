@@ -9,6 +9,7 @@ export const HeaderWrapper = styled.header`
     background-color: #007bff;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 0 10px;
     z-index: 1100;
 
@@ -22,5 +23,12 @@ export const MenuButton = styled.button`
     color: white;
     background: none;
     border: none;
+    cursor: pointer;
+`;
+
+export const ProfilePic = styled.img`
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
     cursor: pointer;
 `;

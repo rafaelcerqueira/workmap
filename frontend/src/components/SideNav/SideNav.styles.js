@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 export const SideNavWrapper = styled.div`
     position: fixed;
-    top: 0;
+    top: 50px;
     left: ${({ isOpen }) => (isOpen ? '0' : '-100%')};
     width: 250px;
-    height: 100%;
+    height: calc(100% - 50px);
     background-color:rgb(217, 252, 90);
     transition: left 0.3s ease-in-out;
     padding: 20px;
@@ -29,12 +29,12 @@ export const Profile = styled.div`
         width: 80px;
         height: 80px;
         border-radius: 50%;
-        margin-bottom: 10px;
+        margin: 0 auto;
     }
     
     h2 {
         font-size: 1.5rem;
-        margin: 0;
+        margin: 10px 0 0;
         color: #333;
     }
 `;

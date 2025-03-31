@@ -10,7 +10,7 @@ export const HeaderWrapper = styled.header`
     display: flex;
     align-items: center;
     padding: 0 10px;
-    z-index: 1001;
+    z-index: 1100;
 
     @media (min-width: 768px) {
         display: none;

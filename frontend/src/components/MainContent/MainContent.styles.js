@@ -3,17 +3,27 @@ import styled from 'styled-components';
 export const MainContentWrapper = styled.main`
     flex-grow: 1;
     display: flex;
-    flex-diection: column;
-    justify-content: flex-start;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    padding: 20px
-    bacground-color: #ffffff;
+    min-height: 100vh;
+    padding: 20px;
+    bacground-color:rgb(255, 255, 255);
     overflow-y: auto;
 
-    @media (min-width: 768px) {
-        align-items: flex-start;
-        padding: 40px;
+`;
+
+export const TitleContainer = styled.div`
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 30px;
+    text-align: center;
+    h1 {
+        font-size: 2.5rem;
+        color: #333;
+        margin: 0;
     }
+
 `;
 
 export const TaskListWrapper = styled.ul`
@@ -24,11 +34,11 @@ export const TaskListWrapper = styled.ul`
     max-width: 600px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
 `;
 
 export const TaskItem = styled.li`
-    padding: 15px;
+    padding: 20px;
     background-color: #f8f9fa;
     border: 1px solid #ddd;
     border-radius: 5px;

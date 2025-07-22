@@ -1,11 +1,10 @@
 import React from "react";
-import { MainContentWrapper, TaskListWrapper, TaskItem } from './MainContent.styles';
-import TaskList from "../TaskList/TaskList";
+import { MainContentWrapper, TitleContainer, TaskListWrapper, TaskItem } from './MainContent.styles';
 
 const MainContent = ({ tasks }) => {
     return (
         <MainContentWrapper>
-            <h1>Tarefas</h1>
+           <TitleContainer>Titulo do aplicativo</TitleContainer>
             <TaskListWrapper>
                 {tasks.map((task, index) => (
                     <TaskItem key={index}>{task}</TaskItem>

@@ -38,10 +38,17 @@ export const TaskListWrapper = styled.ul`
 `;
 
 export const TaskItem = styled.li`
-    padding: 20px;
-    background-color: #f8f9fa;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
-    color: #333;
+  padding: 15px;
+  background-color: ${props => props.status === "concluída" ? "#f0fdf4" : "#fff"};
+  border-left: 15px solid ${props => props.status === "concluída" ? "#10b981" : "#3b82f6"};
+  margin-bottom: 10px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: #f8fafc;
+  }
 `;

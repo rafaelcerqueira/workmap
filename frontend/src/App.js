@@ -9,12 +9,6 @@ const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
-  const [tasks, setTasks] = useState([
-    'Cadastrar currículo',
-    'Atualizar currículo',
-    'Preparar para vaga',
-  ]);
-
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
@@ -46,7 +40,7 @@ const App = () => {
       <div style={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', height: '100vh' }}>
         {!isMobile && <SideNav isOpen={isMenuOpen} isMobile={isMobile} user={user} />}
         {isMobile && <SideNav isOpen={isMenuOpen} isMobile={isMobile} />}
-        <MainContent tasks={tasks} />
+        <MainContent />
       </div>
 
     </>

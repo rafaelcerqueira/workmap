@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
+import AddTaskForm from "./AddTaskForm";
 import { TaksListWrapper, TaskItem } from './TaskList.styles';
 
-const TaskList = ({ tasks }) => {
+const TaskList = () => {
+    const [tasks, setTasks] = useState([]);
+
+    const handleAddTask = (newTask) => {
+        setTasks([...tasks, newTask]);
+    };
+
     return (
-        <TaksListWrapper>
-            {tasks.map((task, index) => (
-                <TaskItem key={index}>{task}</TaskItem>
-            ))}
-        </TaksListWrapper>
+        <div>
+            <AddTaskForm onAddTask={handleAddTask}/>
+        </div>
     );
 };
 

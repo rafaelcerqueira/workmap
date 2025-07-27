@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import AddTaskForm from "./AddTaskForm";
-import { TaksListWrapper, TaskItem } from './TaskList.styles';
 
 const TaskList = () => {
     const [tasks, setTasks] = useState([]);

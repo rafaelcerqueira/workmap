@@ -25,6 +25,7 @@ const AddTaskForm = ({ onAddTask }) => {
                 onChange={(e) => setTaskText(e.target.value)}
                 placeholder="Adcionar nova tarefa..."
                 className="border p-2 rounded-l w-full"
+                
             />
             <button
                 type="submit"

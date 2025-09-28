@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { TaskListWrapper } from "../MainContent/MainContent.styles";
 
 const AddTaskForm = ({ onAddTask }) => {
     const [taskText, setTaskText] = useState('');
@@ -19,28 +20,80 @@ const AddTaskForm = ({ onAddTask }) => {
 
     return (
         <FormWrapper onSubmit={handleSubmit}>
-            <input 
-                type="text"
-                value={taskText}
-                onChange={(e) => setTaskText(e.target.value)}
-                placeholder="Adcionar nova tarefa..."
-                className="border p-2 rounded-l w-full"
-                
-            />
-            <button
-                type="submit"
-                className="bg-blue-500 text-white p-2 rounded-r hover:bg-blue-600"
-            >
-                Adicionar
-            </button>
+            <InputWrapper>
+                <input 
+                    type="text"
+                    value={taskText}
+                    onChange={(e) => setTaskText(e.target.value)}
+                    placeholder="Adcionar nova tarefa..."
+                    className="task-input"
+                    
+                />
+                <button
+                    type="submit"
+                    className="add-button"
+                >
+                    <PlusIcon>+</PlusIcon>
+                </button>
+            </InputWrapper>
         </FormWrapper>
-    )
+    );
 };
 
-const FormWrapper = styled.form`
-    display: felx;
+const FormWrapper = styled(TaskListWrapper)`
     margin-bottom: 20px;
-    width: 100%;
+    padding: 0 0 0 16px;
 `;
 
-export default AddTaskForm;
+const InputWrapper = styled.div`
+    display: felx;
+    gap: 8px;
+    width: 100%;
+
+    .task-input {
+        flex-grow: 1;
+        width: 100%;
+        padding: 12px 16px;
+        border: 1px solid #f4e3e3ff;
+        border-radius: 8px;
+        font-size: 14px;
+        transition: border 0.2s;
+        box-sizing: border-box;
+
+        &:focus {
+            outline: none;
+            border-color: #4285f4;
+        }
+    }
+
+    .add-button {
+        background: #2e4e83ff;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        width: 40px;
+        heigh: 40px;
+        margin: 4px;
+        flex-shrink: 0;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background 0.2s;
+
+        &:hover {
+            background: #3367d6;
+        }
+
+        &:active {
+            transform: scale(0.95);
+        }
+    }
+`;
+
+const PlusIcon = styled.span`
+    font-size: 20px;
+    line-height: 1;
+
+`;
+
+export default AddTaskForm; 
